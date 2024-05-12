@@ -1,4 +1,11 @@
 'use srtict';
+import '../css/styles.css'
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
+
+
+
 
 const images = [
   {
@@ -66,6 +73,13 @@ const images = [
   },
 ];
 
+let lightbox = new SimpleLightbox('ul.gallery li', {
+    captionsData: 'alt',
+    sourceAttr: 'gallery-image',
+    captionDelay: 250 
+
+});
+
 const photoList = document.querySelector(".gallery");
 
 function createList(photo) {
@@ -80,3 +94,5 @@ function createList(photo) {
     `).join("");
 
 }
+
+photoList.insertAdjacentHTML("beforeend", createList(images));
